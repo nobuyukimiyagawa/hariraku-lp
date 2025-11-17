@@ -13,8 +13,9 @@ menuClose.addEventListener('click', () => {
 });
 
 // =====================================
-// FAQ アコーディオン（排他式 ＋ スライド開閉）
+// FAQ アコーディオン（なめらか開閉）
 // =====================================
+
 const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach((item) => {
@@ -22,22 +23,64 @@ faqItems.forEach((item) => {
 
   question.addEventListener("click", () => {
 
-    // ① 他の開いているFAQをすべて閉じる（排他式）
-    faqItems.forEach((otherItem) => {
-      if (otherItem !== item) {
-        otherItem.classList.remove("open");
-        otherItem.querySelector(".faq-toggle").textContent = "＋";
+    // 排他式：他を閉じる
+    faqItems.forEach((other) => {
+      if (other !== item) {
+        other.classList.remove("open");
+        other.querySelector(".faq-answer").style.maxHeight = null;
+        other.querySelector(".faq-toggle").textContent = "＋";
       }
     });
 
-    // ② 自分自身の開閉をトグル
-    const isOpen = item.classList.contains("open");
-    item.classList.toggle("open");
-
-    // ③ ＋／ー の切り替え
+    // 開閉トグル
+    const answer = item.querySelector(".faq-answer");
     const toggle = item.querySelector(".faq-toggle");
-    toggle.textContent = isOpen ? "＋" : "ー";
+
+    if (item.classList.contains("open")) {
+      // 閉じる
+      item.classList.remove("open");
+      answer.style.maxHeight = null;
+      toggle.textContent = "＋";
+    } else {
+      // 開く
+      item.classList.add("open");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      toggle.textContent = "ー";
+    }
   });
 });
 
-  
+// ===============================
+// FAQ：Q10 以降を非表示にする
+// ===============================
+const faqItemsAll = document.querySelectorAll(".faq-item");
+const moreBtn = document.getElementById("faq-more-btn");
+
+// 初期状態：Q10以降は非表示
+faqItemsAll.forEach((item, index) => {
+  if (index >= 9) {              // Q1〜Q9は表示、10以降を非表示
+    item.style.display = "none";
+  }
+});
+
+let faqExpanded = false;
+
+// ボタン押下でトグル
+moreBtn.addEventListener("click", () => {
+  if (!faqExpanded) {
+    faqItemsAll.forEach((item) => {
+      item.style.display = "block";
+    });
+    moreBtn.textContent = "閉じる";
+    faqExpanded = true;
+
+  } else {
+    faqItemsAll.forEach((item, index) => {
+      if (index >= 9) {
+        item.style.display = "none";
+      }
+    });
+    moreBtn.textContent = "もっと見る";
+    faqExpanded = false;
+  }
+});
