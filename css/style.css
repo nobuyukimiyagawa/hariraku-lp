@@ -10,7 +10,7 @@ body {
   .sec-title {
     font-size: 22px;
     text-align: center;
-    margin: 10px 0 20px 0;
+    margin: 30px 0 20px 0;
     font-weight: bold;
     color:#748C76;
   }
@@ -201,20 +201,11 @@ body {
     position: relative;
   }
   
-  /* タイトル */
-  .worry-title {
-    font-size: 20px;
-    color: #4CAF50;          /* 緑色 */
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-  
   /* 説明テキスト */
   .worry-lead {
     text-align: center;
     color: #555;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.8;
     margin:0 auto 28px auto;
   }
@@ -226,7 +217,7 @@ body {
     border: 1px dashed #d3a476;
     border-radius: 10px;
     padding: 18px 18px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.9;
     text-align: center;
     font-weight: 600;
@@ -237,7 +228,7 @@ body {
   /* 強調色 */
   .worry-box .blue {
     font-size: 15px;
-    color: #1E88E5;
+    color: #540069;
   }
   
   .worry-box .red {
@@ -381,7 +372,7 @@ body {
    SERVICE SECTION
 ============================ */
 .service-section {
-    padding: 10px 20px 10px 20px;
+    padding: 40px 20px 10px 20px;
     background: #faf7ef;
   }
   
@@ -425,7 +416,7 @@ body {
     border-radius: 10px;
     padding: 20px 18px;
     line-height: 1.8;
-    font-size: 12px;
+    font-size: 14px;
     color: #444;
     margin:0;
   }
@@ -436,13 +427,6 @@ body {
 .menu-section {
     padding: 40px 20px;
     background: #fff;
-  }
-  
-  .menu-title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 30px;
   }
   
   /* カテゴリー見出し */
@@ -479,7 +463,7 @@ body {
   
   /* 説明文 */
   .menu-desc {
-    font-size: 13px;
+    font-size: 14px;
     color: #555;
     line-height: 1.8;
     margin-bottom: 12px;
@@ -504,84 +488,101 @@ body {
     color: #c65353; /* 赤系カラー */
   }
   
+  /* ▼ メニュー注意書き */
+.menu-notes {
+  background: #fff8f3;
+  padding: 18px 14px;
+  border-radius: 8px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.menu-notes p {
+  font-size: 13px;
+  color: #6b4d3c;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.menu-notes p:last-child {
+  margin-bottom: 13px;
+}
+
   
 /* ============================
    お客様の声
 ============================ */
 .voice-section {
-    padding: 40px 20px 60px;
-    background: #faf7ef;
-  }
+  padding: 50px 20px 10px 20px;
+  background: #faf7ef;
+  position: relative;
+}
   
-  .voice-title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
-  
-  /* ▼ カード本体 */
-  .voice-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 25px 20px;
-    margin-bottom: 30px;
-    text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-  }
-  
-  /* ▼ 写真（丸型） */
-  .voice-photo {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 16px auto;
-  }
-  
-  /* ▼ 名前・年代（オレンジ強調） */
-  .voice-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #DC8400;
-    margin-bottom: 16px;
-  }
-  
-  /* ▼ 本文 */
-  .voice-text {
-    font-size: 12px;
-    line-height: 1.8;
-    color: #444;
-    text-align: left;     /* ここは読みやすいようあえて左揃え */
-  }
+.voice-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 70px 20px 25px 20px; /* ← 上に大きな余白を確保（写真分） */
+  margin-top: 90px;             /* ← 写真が外に出ても崩れないための余白 */
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+/* 写真を“外側へ”飛び出させる */
+.voice-img-wrap {
+  position: absolute;
+  top: -60px;           /* ← カード外に半分出す */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 写真（丸型） */
+.voice-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;       /* ← 写真縁に白い縁追加（デザイン通り） */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* 名前 */
+.voice-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #DC8400;
+  margin-bottom: 16px;
+}
+
+/* テキスト */
+.voice-text {
+  font-size: 14px;
+  line-height: 2.5;
+  color: #444;
+  text-align: left;
+}
   
   
 /* ============================
    ご利用の流れ
 ============================ */
 .flow-section {
-    padding: 40px 20px 60px;
+    padding: 40px 20px 10px 20px;
     background: #faf7ef;
   }
   
-  .flow-title {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 900;
-    margin-bottom: 30px;
-  }
-  
   /* ▼ 各ステップの行 */
-  .flow-item {
-    display: flex;
-    width: 100%;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
+.flow-item {
+  display: flex;
+  align-items: center; /* ← これを追加すると左右ブロックの高さが揃う */
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
   
   /* 左ブロック（緑背景） */
   .flow-left {
@@ -594,7 +595,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 3px solid #ffffff;
   }
   
   .flow-label {
@@ -609,29 +609,23 @@ body {
   }
   
   /* 右テキスト部分 */
-  .flow-right {
-    width: 70%;
-    padding: 18px 12px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.7;
-    color: #444;
-  }
+.flow-right {
+  width: 70%;
+  padding: 18px 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+  display: flex;                 /* ← 各行要素を上下中央に */
+  align-items: center;           /* ← 縦中央寄せ */
+}
   
   
 /* ============================
    FAQ SECTION（アニメ対応）
 ============================ */
 .faq-section {
-    padding: 40px 20px 60px;
+    padding: 40px 20px 10px 20px;
     background: #faf7ef;
-  }
-  
-  .faq-title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 30px;
   }
   
   /* ▼ 全体カード */
@@ -682,28 +676,44 @@ body {
   }
   
   /* ▼ 回答（アニメ用 max-height） */
-  .faq-answer {
-    background: #fff;
-    font-size: 14px;
-    color: #444;
-    line-height: 1.8;
-    padding: 0 16px;
-    
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .35s ease, padding .3s ease;
-  }
-  
-  /* 開いたとき */
-  .faq-item.open .faq-answer {
-    padding: 16px;
-    max-height: 500px;   /* 十分大きい値。増えても問題なし */
-  }
-  
-  .faq-item.open .faq-toggle {
-    transform: rotate(180deg);
-  }
-  
+.faq-answer {
+  background: #fff;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  padding: 0 16px;       /* 開く前は横方向だけ */
+  max-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: max-height .35s ease;
+}
+
+/* 開いたとき */
+.faq-item.open .faq-answer {
+  padding: 16px;          /* ← 開いた時に上下の余白を付ける */
+  max-height: 600px;      /* 充分大きければOK */
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(180deg);
+}
+
+/* FAQ もっと見るボタン */
+.faq-more-btn {
+  display: block;
+  width: 100%;
+  margin: 20px auto 0;
+  padding: 14px 0;
+  text-align: center;
+  background: #fff;
+  color: #7da68a;
+  font-size: 16px;
+  font-weight: 700;
+  border:1px solid #7da68a;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
   
   
 /* ============================
@@ -712,13 +722,6 @@ body {
 .company-section {
     padding: 40px 20px 80px;
     background: #faf7ef;
-  }
-  
-  .company-title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 30px;
   }
   
   /* 白いカード全体 */
