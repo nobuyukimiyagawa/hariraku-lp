@@ -84,3 +84,28 @@ moreBtn.addEventListener("click", () => {
     faqExpanded = false;
   }
 });
+
+/* ============================
+   Fade-in（全要素自動付与）
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const targets = document.querySelectorAll(
+    "section, .flow-item, .voice-card, .menu-card, .service-block, .faq-item, .company-row"
+  );
+
+  targets.forEach(el => {
+    el.classList.add("fadein-up");
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.15,
+  });
+
+  targets.forEach(el => observer.observe(el));
+});
