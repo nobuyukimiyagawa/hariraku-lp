@@ -763,4 +763,16 @@ body {
     line-height: 1.6;
   }
   
-  
+/* ============================
+   FADE-IN ANIMATION
+============================ */
+.fadein-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.fadein-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
