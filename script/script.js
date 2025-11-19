@@ -15,34 +15,86 @@ menuClose.addEventListener('click', () => {
 
 
 /* ============================
-   FAQ カテゴリ切り替え
+   FAQ：カテゴリ切り替え + もっと見る制御
 ============================ */
 const catBtns = document.querySelectorAll(".faq-cat-btn");
 const faqItems = document.querySelectorAll(".faq-item");
+const moreBtn = document.getElementById("faq-more-btn");
 
+// ▼ カテゴリごとに現在表示している件数を管理
+let currentCategory = "basic";
+let expanded = false; // もっと見る状態
+
+// =========================================
+// ▼ 共通：表示更新（10件 + もっと見る）
+// =========================================
+function updateFaqView() {
+  const items = [...faqItems].filter(
+    item => item.dataset.category === currentCategory
+  );
+
+  // いったん全部非表示
+  faqItems.forEach(i => (i.style.display = "none"));
+
+  if (!expanded) {
+    // ▼ 最初の10件だけ表示
+    items.forEach((item, index) => {
+      if (index < 10) item.style.display = "block";
+    });
+
+    // ▼ 10件以上なら「もっと見る」表示
+    moreBtn.style.display = items.length > 10 ? "block" : "none";
+    moreBtn.textContent = "もっと見る";
+
+  } else {
+    // ▼ 全件表示
+    items.forEach(item => (item.style.display = "block"));
+    moreBtn.style.display = items.length > 10 ? "block" : "none";
+    moreBtn.textContent = "閉じる";
+  }
+
+  // 開いたアコーディオンを一旦リセット
+  faqItems.forEach(item => {
+    item.classList.remove("open");
+    item.querySelector(".faq-answer").style.maxHeight = null;
+    item.querySelector(".faq-toggle").textContent = "＋";
+  });
+}
+
+// =========================================
+// ▼ カテゴリ切り替え
+// =========================================
 catBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-
-    // active切り替え
     catBtns.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
-    const cat = btn.dataset.category;
+    currentCategory = btn.dataset.category;
+    expanded = false; // 切り替え時はリセット
 
-    // 該当カテゴリのみ表示
-    faqItems.forEach(item => {
-      item.style.display =
-        item.dataset.category === cat ? "block" : "none";
-      item.classList.remove("open");
-      item.querySelector(".faq-answer").style.maxHeight = null;
-      item.querySelector(".faq-toggle").textContent = "＋";
-    });
+    updateFaqView();
   });
 });
 
-// ============================
-// アコーディオン
-// ============================
+// =========================================
+// ▼ もっと見る（開閉）
+/**
+ * クリックすると expanded を反転して、
+ * updateFaqView() を再実行するだけでOK
+ */
+moreBtn.addEventListener("click", () => {
+  expanded = !expanded;
+  updateFaqView();
+});
+
+// =========================================
+// ▼ ページロード直後も即座に適用
+// =========================================
+updateFaqView();
+
+// =========================================
+// ▼ アコーディオン動作
+// =========================================
 faqItems.forEach(item => {
   const q = item.querySelector(".faq-question");
 
@@ -71,63 +123,6 @@ faqItems.forEach(item => {
     }
   });
 });
-
-/* ============================
-   FAQ：カテゴリ別もっと見る
-============================ */
-const moreBtn = document.getElementById("faq-more-btn");
-let expanded = false;
-
-function updateMoreButton(category) {
-  const items = [...faqItems].filter(i => i.dataset.category === category);
-
-  // 11件以上 → ボタン出す
-  if (items.length > 10) {
-    moreBtn.style.display = "block";
-  } else {
-    moreBtn.style.display = "none";
-  }
-
-  // 初期状態（10件だけ）
-  if (!expanded) {
-    items.forEach((item, index) => {
-      item.style.display = index < 10 ? "block" : "none";
-    });
-  }
-}
-
-// 初期ロード：basic カテゴリの件数確認
-updateMoreButton("basic");
-
-// カテゴリクリック時に「もっと見る」判定更新
-catBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    expanded = false;
-    moreBtn.textContent = "もっと見る";
-    updateMoreButton(btn.dataset.category);
-  });
-});
-
-// ボタン押下
-moreBtn.addEventListener("click", () => {
-  const currentCat = document.querySelector(".faq-cat-btn.active").dataset.category;
-  const items = [...faqItems].filter(i => i.dataset.category === currentCat);
-
-  if (!expanded) {
-    // 全件表示
-    items.forEach(item => item.style.display = "block");
-    moreBtn.textContent = "閉じる";
-    expanded = true;
-  } else {
-    // 10件に戻す
-    items.forEach((item, index) => {
-      item.style.display = index < 10 ? "block" : "none";
-    });
-    moreBtn.textContent = "もっと見る";
-    expanded = false;
-  }
-});
-
 
 /* ============================
    Fade-in（全要素自動付与）
