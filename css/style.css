@@ -621,84 +621,116 @@ body {
   
   
 /* ============================
-   FAQ SECTION（アニメ対応）
+   FAQ SECTION（全体）
 ============================ */
 .faq-section {
-    padding: 40px 20px 10px 20px;
-    background: #faf7ef;
-  }
-  
-  /* ▼ 全体カード */
-  .faq-item {
-    background: #ffffff;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    transition: all 0.3s ease;
-  }
-  
-  /* ▼ 質問部分 */
-  .faq-question {
-    width: 100%;
-    background: #7da68a;
-    color: #fff;
-    padding: 16px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-  }
-  
-  .faq-q-left {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .faq-q-label {
-    font-size: 16px;
-    font-weight: 700;
-  }
-  
-  .faq-q-text {
-    font-size: 15px;
-    font-weight: 600;
-  }
-  
-  /* ▼ ＋／ー */
-  .faq-toggle {
-    font-size: 22px;
-    font-weight: 700;
-    transition: transform .2s;
-  }
-  
-  /* ▼ 回答（アニメ用 max-height） */
+  padding: 40px 20px 10px 20px;
+  background: #faf7ef;
+}
+
+/* ============================
+ FAQカテゴリタブ（塗りつぶし）
+============================ */
+.faq-category-wrap {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.faq-cat-btn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 50px;
+  border: 1px solid #7da68a;
+  background: #fff;
+  color: #7da68a;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+/* 選択中（塗りつぶし） */
+.faq-cat-btn.active {
+  background: #7da68a;
+  color: #fff;
+}
+
+/* ============================
+ FAQ ITEM（アコーディオン）
+============================ */
+.faq-item {
+  background: #ffffff;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: all 0.3s ease;
+}
+
+/* 質問部分 */
+.faq-question {
+  width: 100%;
+  background: #7da68a;
+  color: #fff;
+  padding: 16px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-q-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.faq-q-label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.faq-q-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ＋／ー */
+.faq-toggle {
+  font-size: 22px;
+  font-weight: 700;
+  transition: transform .2s;
+}
+
+/* 回答（アニメ用 max-height） */
 .faq-answer {
   background: #fff;
   font-size: 14px;
   color: #444;
   line-height: 1.8;
-  padding: 0 16px;       /* 開く前は横方向だけ */
+  padding: 0 16px; 
   max-height: 0;
   overflow: hidden;
   box-sizing: border-box;
   transition: max-height .35s ease;
 }
 
-/* 開いたとき */
+/* 開く時 */
 .faq-item.open .faq-answer {
-  padding: 16px;          /* ← 開いた時に上下の余白を付ける */
-  max-height: 600px;      /* 充分大きければOK */
+  padding: 16px;
+  max-height: 600px;
 }
 
 .faq-item.open .faq-toggle {
   transform: rotate(180deg);
 }
 
-/* FAQ もっと見るボタン */
+/* ============================
+ FAQ：もっと見る
+============================ */
 .faq-more-btn {
   display: block;
   width: 100%;
@@ -709,7 +741,7 @@ body {
   color: #7da68a;
   font-size: 16px;
   font-weight: 700;
-  border:1px solid #7da68a;
+  border: 1px solid #7da68a;
   border-radius: 8px;
   cursor: pointer;
 }
