@@ -70,6 +70,11 @@ body {
   .menu-btn span:last-child {
     margin-bottom: 0;
   }
+
+  /* ▼ SPではPCナビ非表示（追加） */
+.pc-nav {
+  display: none;
+}
   
   /* ============================
    スライドインメニュー
@@ -807,4 +812,294 @@ body {
 .fadein-up.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* ============================
+   PC レイアウト
+============================ */
+@media (min-width: 768px) {
+
+  /* ▼ ベース余白調整 */
+  .sec-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  section {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  /* ▼ HERO（例：テキスト + 画像横並び） */
+  .hero {
+    max-width: 1080px;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 120px 0;
+  }
+
+  .hero-text {
+    flex: 1;
+    font-size: 20px;
+  }
+
+  .hero-image {
+    max-width: 1080px;
+    width:100%;
+  }
+
+  .hero-img-wrap {
+    width: 100%;
+    height: 70vh;
+  }
+
+/* ============================
+   PCヘッダー（通常ナビ）
+============================ */
+  /* ヘッダーの高さ調整 */
+  .header-inner {
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 80px;
+  }
+
+  /* ロゴサイズ調整 */
+  .header-logo {
+    height: 60px;
+  }
+
+  /* PCナビ表示 */
+  .pc-nav {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .pc-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    transition: opacity .2s ease;
+  }
+
+  .pc-nav a:hover {
+    opacity: 0.6;
+  }
+
+  /* SP用ハンバーガーは非表示 */
+  .menu-btn,
+  .mobile-menu {
+    display: none !important;
+  }
+/* ============================
+   HERO：PCは全幅表示
+============================ */
+  .hero {
+    max-width: 1120px !important;
+    width: 100%;
+    padding: 0;          /* セクション余白リセット */
+  }
+
+  .hero-img-wrap {
+    width: 100%;
+    height: 70vh;        /* 必要なら調整 */
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* 画面いっぱいに収める */
+    object-position: center;
+  }
+
+  /* ============================
+     ご利用の流れ（PCは横並び）
+  ============================= */
+  .flow-item {
+    width:90%;
+    margin:0 auto 18px auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  .flow-left {
+    width: auto;
+    text-align: center;
+    padding: 24px;
+    font-size: 20px;
+  }
+
+  .flow-right {
+    font-size: 16px;
+    padding: 24px 20px;
+  }
+
+
+  /* ============================
+     メニュー（3列レイアウト）
+  ============================= */
+  .menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .menu-card {
+    padding: 24px;
+    font-size: 16px;
+  }
+
+/* ============================
+   PC：お客様の声 3カラム整列
+============================ */
+  /* ▼ セクションはブロックでOK */
+  .voice-section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: block; /* ←ここが重要（flexを外す） */
+  }
+
+  /* ▼ 実際の3カラム親 */
+  .voice-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  /* ▼ カードを3分割 */
+  .voice-card {
+    width: calc(33.33% - 30px);
+    margin-top: 120px;
+    box-sizing: border-box;
+  }
+
+  /* ▼ 画像調整 */
+  .voice-img-wrap {
+    top: -70px;
+  }
+
+  .voice-photo {
+    width: 140px;
+    height: 140px;
+    border-width: 6px;
+  }
+
+  .voice-text {
+    font-size: 15px;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  /* ============================
+     FAQ（中央寄せ + 幅固定）
+  ============================= */
+  .faq-section {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .faq-question {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .faq-answer {
+    font-size: 16px;
+  }
+
+/* ============================
+   PCレイアウト：サービス3カラム
+============================ */
+  .service-wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .service-block {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-heading {
+    padding: 10px;
+  }
+
+  .service-photo {
+    height: 240px;
+    object-fit: cover;
+  }
+
+  .service-title {
+    font-size:16px;
+  }
+
+  .service-text {
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  /* 各ブロックを均等幅に、縦揃え */
+  .service-block {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* タイトル枠高さ揃え */
+  .service-heading {
+    min-height: 80px; /* ★好みに調整可能 */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .service-photo {
+    margin-top: 16px;
+  }
+
+  .service-text {
+    flex-grow: 1;
+  }
+  .worry-box {
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  .worry-img {
+    width: 25%;
+  }
+
+  .company-section{
+    padding: 40px 20px 120px;
+  }
+
+  .key-text {
+    font-size: 30px;
+    padding: 12px 12px;
+  }
+
+  .key-orange {
+    top: 25%;
+    left: 10%;
+  }
+  .key-black {
+    left: 23%;
+  }
+
 }
