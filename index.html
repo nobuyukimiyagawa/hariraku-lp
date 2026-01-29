@@ -3,16 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>はりらくLAB｜訪問鍼灸LP</title>
-  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- ===============================
+        ▼ 基本SEO
+  =============================== -->
+  <title>はりらくLAB｜訪問鍼灸｜自宅で受けられるプロの鍼灸ケア</title>
+
+  <meta name="description" content="はりらくLABは、国家資格者による訪問鍼灸サービス。自宅で受けられる肩こり・腰痛・産後ケア・美容鍼まで幅広く対応。忙しい方や子育て中の方にも安心してご利用いただけます。">
+
+  <meta name="keywords" content="訪問鍼灸, 出張鍼灸, 鍼灸 東京, 美容鍼, 産後ケア, マッサージ, 肩こり, 腰痛, 武蔵小山">
+  <!-- canonical（サブディレクトリ用） -->
+  <link rel="canonical" href="https://anduks.com/hariraku/">
+  <!-- ===============================
+        ▼ OGP（SNS共有対策）
+  =============================== -->
+  <meta property="og:title" content="はりらくLAB｜訪問鍼灸サービス">
+  <meta property="og:description" content="国家資格者による訪問鍼灸サービス。肩こり・腰痛・産後ケア・美容鍼など、自宅でプロの施術が受けられます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anduks.com/hariraku/"> 
+  <meta property="og:image" content="./image/ogp.jpg"> 
+  <meta property="og:site_name" content="はりらくLAB">
+
+  <!-- ===============================
+        ▼ Twitter Card
+  =============================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="はりらくLAB｜訪問鍼灸サービス">
+  <meta name="twitter:description" content="国家資格者による訪問鍼灸サービス。自宅で受けられる鍼灸・マッサージ・産後ケア・美容鍼。">
+  <meta name="twitter:image" content="./image/ogp.jpg">
+
+  <!-- ===============================
+        ▼ Favicon周り
+  =============================== -->
   <link rel="icon" href="./image/hariraku_favi-con.png" type="image/png">
 
+  <!-- ===============================
+        ▼ CSS
+  =============================== -->
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "はりらくLAB",
+      "image": "https://anduks.com/hariraku/image/ogp.jpg",
+      "@id": "https://anduks.com/hariraku/",
+      "url": "https://anduks.com/hariraku/",
+      "telephone": "080-7638-9572",
+      "description": "国家資格者による訪問鍼灸サービス。肩こり・腰痛・産後ケア・美容鍼など、自宅でプロの施術が受けられます。",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "阿佐谷北5-45-15",
+        "addressLocality": "杉並区",
+        "addressRegion": "東京都",
+        "postalCode": "166-0001",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "35.707080", 
+        "longitude": "139.635430"
+      },
+      "areaServed": "東京都・品川区・目黒区・世田谷区・大田区（周辺エリア応相談）",
+      "sameAs": [
+        "https://line.me/R/ti/p/@549bhpoc"
+      ]
+    }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17775979243"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17775979243'); </script>
+    <!-- Event snippet for LINEクリック conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-17775979243/fbQ6CIWBy88bEOvVn5xC', 'event_callback': callback }); return false; } </script>
+
 </head>
+
 <body>
 
     <header class="header">
         <div class="header-inner">
-            <img src="./image/hariraku_logo.png" alt="はりらくLAB." class="header-logo">
+            <a href="/hariraku/"><img src="./image/hariraku_logo.png" alt="はりらくLAB." class="header-logo"></a>
             <button class="menu-btn">
             <span></span>
             <span></span>
@@ -51,17 +121,17 @@
     <section class="hero">
 
         <div class="hero-img-wrap">
-        <img src="./image/key_image.jpg" alt="訪問鍼灸" class="hero-img">
-    
-        <!-- キーテキスト（オレンジ） -->
-        <div class="key-text key-orange">
-            長年の痛みを解決
-        </div>
-    
-        <!-- キーテキスト（黒） -->
-        <div class="key-text key-black">
-            訪問鍼灸で手軽に
-        </div>
+          <img src="./image/key_image.jpg" alt="訪問鍼灸" class="hero-img">
+      
+          <!-- キーテキスト（オレンジ） -->
+          <div class="key-text key-orange">
+              <p>ずっと取れない痛みを改善</p>
+          </div>
+      
+          <!-- キーテキスト（黒） -->
+          <div class="key-text key-black">
+            <p>訪問鍼灸・マッサージで手軽に</p>
+          </div>
         </div>
     </section>
 
@@ -71,13 +141,13 @@
 <div class="floating-cta">
 
     <!-- 予約ボタン -->
-    <a href="https://grgpwg.b-merit.jp/v9jiyf/web/login" class="cta-button cta-reserve">
+    <a href="https://anduks.com/hariraku/reserve.html" class="cta-button cta-reserve" onclick="try{ return gtag_report_conversion(this.href); }catch(e){ return true; }">
       <img src="./image/reservation_icon.png" alt="予約" class="cta-icon">
       <span>ご予約はこちら</span>
     </a>
   
     <!-- LINEボタン -->
-    <a href="https://line.me/R/ti/p/@549bhpoc" class="cta-button cta-line">
+    <a href="https://line.me/R/ti/p/@549bhpoc" class="cta-button cta-line" onclick="try{ return gtag_report_conversion(this.href); }catch(e){ return true; }">
       <img src="./image/LINE_icon.png" alt="LINE" class="cta-icon">
       <span>LINE登録はこちら</span>
     </a>
@@ -89,7 +159,7 @@
 ============================ -->
     <section class="worry-section">
 
-        <h2 class="sec-title">『今まで諦めていた動きを』<br>取り戻す</h2>
+        <h2 class="sec-title">『当日でもご予約可能』</h2>
     
         <p class="worry-lead">
         慢性的な痛み・疲れ、関節の固まりに。<br>
@@ -820,11 +890,6 @@
           166-0001<br>
           東京都杉並区阿佐谷北5-45-15
         </span>
-      </div>
-  
-      <div class="company-row">
-        <span class="company-label">電話番号</span>
-        <span class="company-value">080-7638-9572</span>
       </div>
   
       <div class="company-row">
