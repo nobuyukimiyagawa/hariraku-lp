@@ -174,7 +174,8 @@ body {
   .key-text {
     position: absolute;
     background: #ffffff;
-    padding: 8px 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
@@ -186,17 +187,20 @@ body {
 
   /* 左側オレンジ */
   .key-orange {
-    top: 30%;
+    top: 20%;
     left: 8%;
     color: #DC8400;
+    font-size:15px;
   }
   
   /* 右側ブラック */
   .key-black {
-    top: 10%;
-    left: 25%;
+    top: 3%;
+    left: 30%;
     color: #222;
+    font-size:15px;
   }
+
   /* ============================
    NEXT SECTION（悩み訴求）
 ============================ */
@@ -1095,11 +1099,174 @@ body {
   }
 
   .key-orange {
-    top: 25%;
+    top: 10%;
     left: 10%;
-  }
-  .key-black {
-    left: 23%;
+    font-size:25px;
   }
 
+  .key-black {
+    top: 5%;
+    left: 20%;
+    font-size:25px;
+  }
+
+  .key-black p{
+    margin:0;
+  }
+
+  .key-orange p {
+    margin:0;
+  }
+
+}
+
+
+/* ============================
+   エリア別ご予約
+============================ */
+.area-section{
+  padding: 40px 20px 10px 20px;
+  background: #faf7ef;
+}
+
+.area-lead{
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 auto 20px auto;
+}
+
+.area-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.area-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 14px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border: 1px solid rgba(125,166,138,0.35);
+}
+
+.area-name{
+  font-size: 16px;
+  font-weight: 800;
+  color: #333;
+}
+
+.area-cta{
+  background: #F6A623;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.area-note{
+  margin-top: 14px;
+  font-size: 12px;
+  color: #6b4d3c;
+  line-height: 1.7;
+  background: #fff8f3;
+  border-radius: 10px;
+  padding: 12px 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* PC */
+@media (min-width: 768px){
+  .area-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .area-card{
+    padding: 18px 16px;
+  }
+  .area-name{
+    font-size: 17px;
+  }
+}
+
+/* ============================
+   エリア別ご予約（リスト選択）
+============================ */
+.area-section{
+  padding: 40px 20px 10px 20px;
+  background: #faf7ef;
+}
+
+.area-picker{
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border: 1px solid rgba(125,166,138,0.25);
+}
+
+.area-label{
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.area-search{
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px 12px;
+  border: 1px solid #ddd;
+  background: #fff8f3;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.area-select{
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px 12px;
+  border: 2px solid #7da68a;
+  background: #fff;
+  font-size: 15px;
+  outline: none;
+}
+
+.area-reserve-btn{
+  margin-top: 12px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 900;
+  background: #F6A623;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+}
+
+.area-reserve-btn.is-disabled{
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@media (min-width: 768px){
+  .area-picker{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 22px 20px;
+  }
 }
