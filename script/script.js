@@ -146,3 +146,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   targets.forEach(el => observer.observe(el));
 });
+
+/* ============================
+   エリア選択（リスト）→ 予約導線
+============================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("areaSelect");
+  const btn = document.getElementById("areaReserveBtn");
+  const search = document.getElementById("areaSearch");
+
+  if (!select || !btn) return;
+
+  // セレクト変更でボタン有効化
+  select.addEventListener("change", () => {
+    const url = select.value;
+    if (!url) return;
+
+    btn.classList.remove("is-disabled");
+    btn.href = url;
+
+    // CVを予約サイト遷移で取る（既存関数がある前提）
+    btn.onclick = function () {
+      if (typeof gtag_report_conversion === "function") {
+        return gtag_report_conversion(url);
+      }
+      return true;
+    };
+  });
+
+  // （任意）検索入力でセレクト候補を絞り込み
+  if (search) {
+    search.addEventListener("input", () => {
+      const q = search.value.trim().toLowerCase();
+      const options = Array.from(select.options);
+
+      options.forEach((opt, idx) => {
+        if (idx === 0) return; // 先頭のプレースホルダは除外
+        const text = opt.textContent.toLowerCase();
+        opt.hidden = q ? !text.includes(q) : false;
+      });
+
+      // 検索中に選択が隠れたらリセット
+      const selectedOpt = select.options[select.selectedIndex];
+      if (selectedOpt && selectedOpt.hidden) {
+        select.selectedIndex = 0;
+        btn.classList.add("is-disabled");
+        btn.href = "javascript:void(0);";
+      }
+    });
+  }
+});
